@@ -71,8 +71,9 @@ class MMA7660():
 if __name__=="__main__":
     acc = MMA7660()
     while True:
-        print acc.getAccelerometer()
-        time.sleep(.5)
+        ax,ay,az = acc.getAccelerometer()
+        print 'ax=%.2f'%(ax),'ay=%.2f'%(ay),'az=%.2f'%(az)
+        time.sleep(.1)
         
         
                 
