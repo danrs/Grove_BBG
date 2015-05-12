@@ -1,9 +1,9 @@
 import smbus
 import time
 
+bus=smbus.SMBus(1)
 
-class MPU9250():
-    bus=smbus.SMBus(1)
+class MPU9250():   
     MPU9150_RA_MAG_ADDRESS		=0x0C
     MPU9150_RA_MAG_XOUT_L		=0x03
     MPU9150_RA_MAG_XOUT_H		=0x04
@@ -373,19 +373,24 @@ class MPU9250():
         self.setFullScaleGyroRange(self.MPU9250_GYRO_FS_250)
         self.setFullScaleAccelRange(self.MPU9250_ACCEL_FS_2)
         self.setSleepEnabled(False)
+        
     def setClockSource(self,source):
-        self.writeBits(devAddr,self.MPU9250_RA_PWR_MGMT_1, self.MPU9250_PWR1_CLKSEL_BIT,self.MPU9250_PWR1_CLKSEL_LENGTH,source)
+        return self.writeBits(devAddr,self.MPU9250_RA_PWR_MGMT_1, self.MPU9250_PWR1_CLKSEL_BIT,self.MPU9250_PWR1_CLKSEL_LENGTH,source)
+        
     def setFullScaleGyroRange(self,range):
         pass
+        
     def setFullScaleAccelRange(self,range):
         pass
+        
     def setSleepEnabled(self,enabled):
         pass
-        
+                
     def getMotion9(self):
         ax, ay, az, gx, gy, gz = self.getMotion6()
         self.writeByte()
         pass
+        
     def getMotion6(self):
         pass
         
@@ -393,10 +398,11 @@ class MPU9250():
     def writeByte(self,):
         return self.writeBytes(devAddr, regAddr, 1, &data)
         
-    def writeBytes( devAddr,  regAddr,  length, * data)£º
+    def writeBytes(devAddr, regAddr, length, data)£º
+        pass
         
-    def writeBits(self,devAddr,  regAddr,  bitStart,  length,  data):
-        if self.readByte() != 0:
+    def writeBits(self, devAddr, regAddr, bitStart, length, data):                
+        if self.readByte(devAddr, regAddr) != 0:
             mask = ((1<<length)-1) << (bitStart - length + 1)
             data <<= (bitStart - length + 1)
             data &= mask
@@ -405,9 +411,28 @@ class MPU9250():
             return self.writeByte(devAddr, regAddr, b)
         else:
             return False
+            
+    def readByte(self, devAddr, regAddr, data, timeout):
+        readBytes(devAddr, regAddr, 1, data, timeout)
+        
+    def readBytes(self, devAddr, regAddr, length, data, timeout):
+        count = 0
+        BUFFER_LENGTH = 32        
+        k = 0
+        t1 = 1000*time.time()        
+        while k < length£º
+            bus.write_byte(devAddr, regAddr)
+            bus.
+            
+            if length <= BUFFER_LENGTH:
+                k = k + length
+            else:
+                k = k + BUFFER_LENGTH
+            
+        
+        
 if __name__=="__main__":
-    mpu = MPU9250()
-    mpu.
+    mpu = MPU9250()    
         
         
         

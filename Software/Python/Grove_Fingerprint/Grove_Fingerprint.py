@@ -168,10 +168,10 @@ class Fingerprint():
         ser.write(chr( sum ))
 
     def getReply(self, packet, timeout):
-        #reply = [0x00 for x in xrange(20)]
-        #idx = 0x00
+        reply = []
+        idx = 0x00
         while ser.readable():
-            print ser.read()
+            
 '''        
         timer = 0         
         while True:
