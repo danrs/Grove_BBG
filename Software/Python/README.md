@@ -10,7 +10,7 @@ Done:<br>
 3. Grove_RTC.py   <br>
 4. Grove_UV_Sensor.py   <br>
 5. Grove_3_Axis_Compass <br>
-6. Grove_3_Axis_Digital_Accelerometer_1.5g
-7. Grove_Digital_Light_Sensor
+6. Grove_3_Axis_Digital_Accelerometer_1.5g<br>
+7. Grove_Digital_Light_Sensor<br>
 8.
 
