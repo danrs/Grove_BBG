@@ -11,5 +11,5 @@ did not work, but many of the python scripts are still broken. The main
 purpose of this fork is to provide easy access to Seeed's Python example
 code, not active development.
 
-This repository is not part of the modular CAT system, but is kept for
+This repository is not part of the modular CAT system (https://github.com/modular-CAT), but is kept for
 reference on how to use Grove modules in Python.
